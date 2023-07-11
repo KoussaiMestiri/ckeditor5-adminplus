@@ -86,6 +86,7 @@ Editor.defaultConfig = {
 			'undo',
 			'redo',
 			'sourceEditing',
+			'mention',
 			'exportWord',
 			'exportPdf'
 		]
