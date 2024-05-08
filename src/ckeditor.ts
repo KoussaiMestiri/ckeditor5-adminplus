@@ -6,17 +6,18 @@
 import { ClassicEditor } from '@ckeditor/ckeditor5-editor-classic';
 
 import { Autoformat } from '@ckeditor/ckeditor5-autoformat';
-import { Bold, Code, Italic } from '@ckeditor/ckeditor5-basic-styles';
+import { Bold, Italic } from '@ckeditor/ckeditor5-basic-styles';
 import { BlockQuote } from '@ckeditor/ckeditor5-block-quote';
 import { CloudServices } from '@ckeditor/ckeditor5-cloud-services';
 import type { EditorConfig } from '@ckeditor/ckeditor5-core';
 import { Essentials } from '@ckeditor/ckeditor5-essentials';
+import { FindAndReplace } from '@ckeditor/ckeditor5-find-and-replace';
 import { FontBackgroundColor, FontColor, FontFamily, FontSize } from '@ckeditor/ckeditor5-font';
 import { Heading } from '@ckeditor/ckeditor5-heading';
-import { Highlight } from '@ckeditor/ckeditor5-highlight';
 import { HtmlEmbed } from '@ckeditor/ckeditor5-html-embed';
-import { GeneralHtmlSupport, HtmlComment } from '@ckeditor/ckeditor5-html-support';
+import { FullPage, GeneralHtmlSupport, HtmlComment } from '@ckeditor/ckeditor5-html-support';
 import {
+	AutoImage,
 	Image,
 	ImageCaption,
 	ImageInsert,
@@ -30,23 +31,13 @@ import { Link, LinkImage } from '@ckeditor/ckeditor5-link';
 import { List } from '@ckeditor/ckeditor5-list';
 import { MediaEmbed } from '@ckeditor/ckeditor5-media-embed';
 import { Mention } from '@ckeditor/ckeditor5-mention';
-import { PageBreak } from '@ckeditor/ckeditor5-page-break';
 import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
 import { PasteFromOffice } from '@ckeditor/ckeditor5-paste-from-office';
-import { RemoveFormat } from '@ckeditor/ckeditor5-remove-format';
-import { StandardEditingMode } from '@ckeditor/ckeditor5-restricted-editing';
+import { SelectAll } from '@ckeditor/ckeditor5-select-all';
 import { SourceEditing } from '@ckeditor/ckeditor5-source-editing';
-import {
-	SpecialCharacters,
-	SpecialCharactersEssentials
-} from '@ckeditor/ckeditor5-special-characters';
-import {
-	Table,
-	TableCellProperties,
-	TableColumnResize,
-	TableProperties,
-	TableToolbar
-} from '@ckeditor/ckeditor5-table';
+import { SpecialCharacters, SpecialCharactersArrows } from '@ckeditor/ckeditor5-special-characters';
+import { Style } from '@ckeditor/ckeditor5-style';
+import { Table, TableToolbar } from '@ckeditor/ckeditor5-table';
 import { TextTransformation } from '@ckeditor/ckeditor5-typing';
 import { Undo } from '@ckeditor/ckeditor5-undo';
 
@@ -55,19 +46,20 @@ import { Undo } from '@ckeditor/ckeditor5-undo';
 
 class Editor extends ClassicEditor {
 	public static override builtinPlugins = [
+		AutoImage,
 		Autoformat,
 		BlockQuote,
 		Bold,
 		CloudServices,
-		Code,
 		Essentials,
+		FindAndReplace,
 		FontBackgroundColor,
 		FontColor,
 		FontFamily,
 		FontSize,
+		FullPage,
 		GeneralHtmlSupport,
 		Heading,
-		Highlight,
 		HtmlComment,
 		HtmlEmbed,
 		Image,
@@ -84,18 +76,14 @@ class Editor extends ClassicEditor {
 		List,
 		MediaEmbed,
 		Mention,
-		PageBreak,
 		Paragraph,
 		PasteFromOffice,
-		RemoveFormat,
+		SelectAll,
 		SourceEditing,
 		SpecialCharacters,
-		SpecialCharactersEssentials,
-		StandardEditingMode,
+		SpecialCharactersArrows,
+		Style,
 		Table,
-		TableCellProperties,
-		TableColumnResize,
-		TableProperties,
 		TableToolbar,
 		TextTransformation,
 		Undo
@@ -138,9 +126,7 @@ class Editor extends ClassicEditor {
 			contentToolbar: [
 				'tableColumn',
 				'tableRow',
-				'mergeTableCells',
-				'tableCellProperties',
-				'tableProperties'
+				'mergeTableCells'
 			]
 		}
 	};
