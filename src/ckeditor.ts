@@ -49,7 +49,8 @@ import {
 	TableCellProperties,
 	TableColumnResize,
 	TableProperties,
-	TableToolbar
+	TableToolbar,
+	PlainTableOutput
 } from '@ckeditor/ckeditor5-table';
 import { TextTransformation } from '@ckeditor/ckeditor5-typing';
 import { Undo } from '@ckeditor/ckeditor5-undo';
@@ -104,6 +105,7 @@ class Editor extends ClassicEditor {
 		TableColumnResize,
 		TableProperties,
 		TableToolbar,
+		PlainTableOutput,
 		TextTransformation,
 		Undo
 	];
