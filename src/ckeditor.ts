@@ -11,7 +11,6 @@ import { BlockQuote } from '@ckeditor/ckeditor5-block-quote';
 import { CloudServices } from '@ckeditor/ckeditor5-cloud-services';
 import type { EditorConfig } from '@ckeditor/ckeditor5-core';
 import { Essentials } from '@ckeditor/ckeditor5-essentials';
-import { FindAndReplace } from '@ckeditor/ckeditor5-find-and-replace';
 import { FontBackgroundColor, FontColor, FontFamily, FontSize } from '@ckeditor/ckeditor5-font';
 import { Heading } from '@ckeditor/ckeditor5-heading';
 import { HtmlEmbed } from '@ckeditor/ckeditor5-html-embed';
@@ -27,7 +26,7 @@ import {
 	ImageUpload
 } from '@ckeditor/ckeditor5-image';
 import { Indent } from '@ckeditor/ckeditor5-indent';
-import { Link, LinkImage } from '@ckeditor/ckeditor5-link';
+import { Link } from '@ckeditor/ckeditor5-link';
 import { List } from '@ckeditor/ckeditor5-list';
 import { MediaEmbed } from '@ckeditor/ckeditor5-media-embed';
 import { Mention } from '@ckeditor/ckeditor5-mention';
@@ -35,9 +34,23 @@ import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
 import { PasteFromOffice } from '@ckeditor/ckeditor5-paste-from-office';
 import { SelectAll } from '@ckeditor/ckeditor5-select-all';
 import { SourceEditing } from '@ckeditor/ckeditor5-source-editing';
-import { SpecialCharacters, SpecialCharactersArrows } from '@ckeditor/ckeditor5-special-characters';
-import { Style } from '@ckeditor/ckeditor5-style';
-import { Table, TableToolbar } from '@ckeditor/ckeditor5-table';
+import {
+	SpecialCharacters,
+	SpecialCharactersArrows,
+	SpecialCharactersCurrency,
+	SpecialCharactersEssentials,
+	SpecialCharactersLatin,
+	SpecialCharactersMathematical,
+	SpecialCharactersText
+} from '@ckeditor/ckeditor5-special-characters';
+import {
+	Table,
+	TableCaption,
+	TableCellProperties,
+	TableColumnResize,
+	TableProperties,
+	TableToolbar
+} from '@ckeditor/ckeditor5-table';
 import { TextTransformation } from '@ckeditor/ckeditor5-typing';
 import { Undo } from '@ckeditor/ckeditor5-undo';
 
@@ -52,7 +65,6 @@ class Editor extends ClassicEditor {
 		Bold,
 		CloudServices,
 		Essentials,
-		FindAndReplace,
 		FontBackgroundColor,
 		FontColor,
 		FontFamily,
@@ -72,7 +84,6 @@ class Editor extends ClassicEditor {
 		Indent,
 		Italic,
 		Link,
-		LinkImage,
 		List,
 		MediaEmbed,
 		Mention,
@@ -82,8 +93,16 @@ class Editor extends ClassicEditor {
 		SourceEditing,
 		SpecialCharacters,
 		SpecialCharactersArrows,
-		Style,
+		SpecialCharactersCurrency,
+		SpecialCharactersEssentials,
+		SpecialCharactersLatin,
+		SpecialCharactersMathematical,
+		SpecialCharactersText,
 		Table,
+		TableCaption,
+		TableCellProperties,
+		TableColumnResize,
+		TableProperties,
 		TableToolbar,
 		TextTransformation,
 		Undo
@@ -118,15 +137,16 @@ class Editor extends ClassicEditor {
 				'toggleImageCaption',
 				'imageStyle:inline',
 				'imageStyle:block',
-				'imageStyle:side',
-				'linkImage'
+				'imageStyle:side'
 			]
 		},
 		table: {
 			contentToolbar: [
 				'tableColumn',
 				'tableRow',
-				'mergeTableCells'
+				'mergeTableCells',
+				'tableCellProperties',
+				'tableProperties'
 			]
 		}
 	};
